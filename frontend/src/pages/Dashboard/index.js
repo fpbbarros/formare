@@ -10,8 +10,12 @@ export default function Dashboard({ history }) {
 
             const response = await api.get(`/messages/${localStorage.getItem('id:')}`);
             setMensagem(response.data);
+
         }
+
         loadMessage();
+
+
     }, []);
 
     useEffect(() => {
@@ -31,14 +35,32 @@ export default function Dashboard({ history }) {
     }
 
 
+    function getHours(data) {
+
+        let hora = new Date(data).getUTCHours().toString();
+        let min = new Date(data).getMinutes();
+
+        if(hora.length === 1) {
+            hora = '0' + hora;
+        }
+
+        return `${hora}:${min}`
+    }
+
+
     return (
         <>
             <h1>{userName.name}</h1>
-            <h2>{mensagem.length}</h2>
+
 
             {mensagem.map(msn => (
                 <li key={msn._id}>
                     <p>{msn.message}</p>
+
+                    <span className="register-span">{new Date(msn.createdAt).toLocaleDateString("pt-BR")}</span>
+                    <span>{getHours(msn.createdAt)}</span>
+
+
                 </li>
             ))}
 
@@ -48,3 +70,5 @@ export default function Dashboard({ history }) {
         </>
     )
 }
+
+
