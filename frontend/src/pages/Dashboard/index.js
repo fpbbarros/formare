@@ -57,13 +57,12 @@ export default function Dashboard({ history }) {
                 <li key={msn._id}>
                     <p>{msn.message}</p>
 
-                    <span className="register-span">{new Date(msn.createdAt).toLocaleDateString("pt-BR")}</span>
-                    <span>{getHours(msn.createdAt)}</span>
+                    <span className="dataHora-span">{new Date(msn.createdAt).toLocaleDateString("pt-BR")}</span>
+                    <span className="dataHora-span">{getHours(msn.createdAt)}</span>
 
 
                 </li>
             ))}
-
 
             <span className="register-span" onClick={goBack}>Nova mensagem</span>
 

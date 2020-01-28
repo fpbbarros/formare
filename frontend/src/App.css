@@ -23,6 +23,11 @@ li {
     list-style: none;
 }
 
+p {
+
+    text-align: justify;
+    margin-bottom: 15px;
+}
 
 
 .container {
@@ -71,6 +76,8 @@ li {
   font-size: 16px;
 }
 
+
+
 .content button.btn {
   border: 0;
   border-radius: 4px;
@@ -87,6 +94,15 @@ li {
 
 .content button.btn:hover {
   background-color: #d2dbc0;
+
+}
+
+.content span.dataHora-span {
+
+    color: #4C4C4C;
+    font-weight: bolder;
+    display: flex;
+    font-size: 12px;
 
 }
 
