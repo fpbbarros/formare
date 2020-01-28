@@ -28,7 +28,7 @@ export default function Dashboard({ history }) {
 
 
 
-    function teste() {
+    function goBack() {
 
         history.push('/newmessage');
 
@@ -65,7 +65,7 @@ export default function Dashboard({ history }) {
             ))}
 
 
-            <span className="register-span" onClick={teste}>Nova mensagem</span>
+            <span className="register-span" onClick={goBack}>Nova mensagem</span>
 
         </>
     )
