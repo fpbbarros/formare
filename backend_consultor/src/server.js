@@ -6,34 +6,30 @@ const cors = require('cors');
 const debug = require('debug');
 const normalizePort = require('normalize-port');
 
-const port = normalizePort(process.env.PORT || '3333');
+const port = normalizePort(process.env.PORT || 3333);
 
 app.set('port', port);
 app.use(cors());
 
 const server = http.createServer(app)
     .listen(port, () => { console.log(`listening on ${port}`) })
-    .on('error', onError)
-    .on('listening', onListening);
-
+    .use('error', onError)
+    .use('listening', onListening);
 
 function onError(error) {
     if (error.syscall !== 'listem') {
         throw error;
     }
 
-    const bind = typeof port === 'string' ? 'Pipe ' + port :
-        'Port ' + port;
+    const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
     switch (error.code) {
         case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
+            console.error(bind + ' requires elevated priveleges');
             process.exit(1);
             break;
         case 'EADDRINUSE':
-
-            console.error(bind + ' is alread in use');
-            process.exit(1);
+            console.error(1);
             break;
         default:
             throw error;
