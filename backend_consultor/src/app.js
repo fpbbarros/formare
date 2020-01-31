@@ -7,6 +7,7 @@ const routerIndex = require('./app/routes/routerIndex');
 const routerParticipant = require('./app/routes/routerParticipant');
 const routerSession = require('./app/routes/routerSession');
 const routerMessage = require('./app/routes/routerMessage');
+const routeProject = require('./app/routes/routerProject');
 
 
 const app = express()
@@ -16,6 +17,7 @@ const app = express()
     .use('/', routerIndex)
     .use('/participants', routerParticipant)
     .use('/messages', routerMessage)
+    .use('/projects', routeProject)
     .use('/Sessions', routerSession);
 
 

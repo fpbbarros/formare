@@ -6,7 +6,7 @@ const cors = require('cors');
 const debug = require('debug');
 const normalizePort = require('normalize-port');
 
-const port = normalizePort(process.env.PORT || 3333);
+const port = normalizePort(process.env.PORT || 3332);
 
 app.set('port', port);
 app.use(cors())
