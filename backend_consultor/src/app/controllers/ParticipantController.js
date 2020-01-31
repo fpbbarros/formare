@@ -30,6 +30,7 @@ module.exports = {
         return res.status(400).json({ error: 'Participant already exists' });
       }
       const participant = await Participant.create(req.body);
+      return res.status(200).json(participant);
     } catch (error) {
       return res.status(400).json({ error: 'Registration failed' });
     }
