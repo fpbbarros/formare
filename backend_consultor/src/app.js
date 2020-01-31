@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const routerIndex = require('./app/routes/routerIndex');
 const routerParticipant = require('./app/routes/routerParticipant');
+const routerAuth = require('./app/routes/routerAuth');
 
 
 const app = express()
@@ -12,7 +13,8 @@ const app = express()
     .use(cors())
     .use(bodyParser.urlencoded({ extended: false }))
     .use('/', routerIndex)
-    .use('/participant', routerParticipant);
+    .use('/participants', routerParticipant)
+    .use('/authenticate', routerAuth);
 
 
 module.exports = app;

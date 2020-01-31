@@ -16,9 +16,10 @@ module.exports = {
   async show(req, res) {
     try {
       let participant = await Participant.findById({ _id: req.params.id });
-      if (participant) {
-        res.status(200).json(participant);
+      if (!participant) {
+        return res.status(400).json({ message: 'Participant not found' });
       }
+      return res.status(200).json(participant);
     } catch (error) {
       return res.status(400).json({ error: 'Registration failed' });
     }
@@ -26,7 +27,7 @@ module.exports = {
 
   async store(req, res) {
     try {
-      if (await Participant.findOne({ email: req.params.email })) {
+      if (await Participant.findOne({ email: req.body.email })) {
         return res.status(400).json({ error: 'Participant already exists' });
       }
       const participant = await Participant.create(req.body);
