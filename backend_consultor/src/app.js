@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const routerIndex = require('./app/routes/routerIndex');
 const routerParticipant = require('./app/routes/routerParticipant');
-const routerAuth = require('./app/routes/routerAuth');
 const routerSession = require('./app/routes/routerSession');
+const routerMessage = require('./app/routes/routerMessage');
 
 
 const app = express()
@@ -15,7 +15,7 @@ const app = express()
     .use(bodyParser.urlencoded({ extended: false }))
     .use('/', routerIndex)
     .use('/participants', routerParticipant)
-    .use('/authenticate', routerAuth)
+    .use('/messages', routerMessage)
     .use('/Sessions', routerSession);
 
 

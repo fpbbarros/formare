@@ -3,19 +3,19 @@ const authConfig = require('./config/Auth.json');
 
 class Authenticate {
 
-  constructor() {
+    constructor() {
 
-  }
+    }
 
-  authenticate(user) {
+    static geraToken(user) {
 
-    const token = jsonWebToken.sign({ id: user._id }, authConfig.secret, {
-      expiresIn: 86400
-    })
+        const token = jsonWebToken.sign({ id: user._id }, authConfig.secret, {
+            expiresIn: 86400
+        })
 
-    return token
+        return token
 
-  }
+    }
 
 }
 
