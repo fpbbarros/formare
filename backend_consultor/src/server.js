@@ -9,12 +9,13 @@ const normalizePort = require('normalize-port');
 const port = normalizePort(process.env.PORT || 3333);
 
 app.set('port', port);
-app.use(cors());
+app.use(cors())
+    .use('error', onError)
+    .use('listening', onListening);
 
 const server = http.createServer(app)
     .listen(port, () => { console.log(`listening on ${port}`) })
-    .use('error', onError)
-    .use('listening', onListening);
+
 
 function onError(error) {
     if (error.syscall !== 'listem') {
