@@ -1,7 +1,7 @@
 'use strict'
 
 const bcrypt = require('bcryptjs');
-const User = require('../models/Users');
+const User = require('../models/User');
 const jsonWebToken = require('jsonwebtoken');
 const authConfig = require('../config/Auth.json');
 
